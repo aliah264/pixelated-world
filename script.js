@@ -1,18 +1,22 @@
-// Pixelated Character Animation
-const character = document.getElementById('character');
 const button = document.querySelector('.pixel-button');
+const pages = document.querySelectorAll('.page');
+const backButtons = document.querySelectorAll('.back-button');
 
-// Add animation on button click
+// Function to show a random page after button click
 button.addEventListener('click', () => {
-    character.classList.add('animate');
+    // Randomly select a page to display
+    const randomPageIndex = Math.floor(Math.random() * pages.length);
     
-    // After 1 second, reset the animation
-    setTimeout(() => {
-        character.classList.remove('animate');
-    }, 1000);
+    // Hide the main content and show the selected page
+    document.querySelector('.content').style.display = 'none';
+    pages[randomPageIndex].classList.add('page-active');
 });
 
-// Example of random mini-game trigger (just a simple alert for now)
-button.addEventListener('dblclick', () => {
-    alert('Mini-Game: Match-3 coming soon!');
+// Go back to the main screen when 'Go Back' is clicked
+backButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Hide the current page and show the main content
+        button.closest('.page').classList.remove('page-active');
+        document.querySelector('.content').style.display = 'block';
+    });
 });
