@@ -1,9 +1,9 @@
-const button = document.querySelector('.pixel-button');
+const startButton = document.getElementById('start-button');
 const pages = document.querySelectorAll('.page');
 const backButtons = document.querySelectorAll('.back-button');
 
 // Function to show a random page after button click
-button.addEventListener('click', () => {
+startButton.addEventListener('click', () => {
     // Randomly select a page to display
     const randomPageIndex = Math.floor(Math.random() * pages.length);
     
