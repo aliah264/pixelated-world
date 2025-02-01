@@ -1,4 +1,4 @@
-/* General reset */
+/* 🔹 Reset & General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,107 +6,116 @@
 }
 
 body {
-    font-family: 'Press Start 2P', cursive; /* Pixel-style font */
-    /* background-color: #f9f8f8; */
+    font-family: 'Press Start 2P', cursive; /* Pixel font */
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7, #fad0c4); /* Soft pastel gradient */
     color: #fff;
     text-align: center;
     padding: 20px;
 }
 
-/* Title */
+/* 🔹 Title Styling */
 header h1 {
-    font-size: 2rem;
-    color: #00ccff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: 2.5rem;
+    color: #ffea00;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
 }
 
-/* Background Image */
-.background-img {
-    width: 100%;
-    height: auto;
-    display:flex;
-    margin: 0 auto;
-}
-
-/* Pixel Characters */
-.character {
-    width: 150px;
-    height: auto;
-    margin: 20px;
-    transition: transform 0.5s ease;
-}
-
-.pixel-bunny:hover, .pixel-cat:hover {
-    transform: scale(1.2);
-}
-
-/* Pixelated Button */
-.pixel-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-.pixel-button img {
-    width: 200px;
-    height: auto;
-    transition: transform 0.2s;
-}
-
-.pixel-button img:hover {
-    transform: scale(1.1);
-}
-
-/* Page Content (Hidden Initially) */
-.page {
-    display: none;
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Back Button */
-.back-button {
-    background-color: #00ccff;
-    border: 2px solid #fff;
-    padding: 10px 20px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.2s;
-}
-
-.back-button:hover {
-    background-color: #00bbee;
-}
-
-/* Page Transitions */
-.page-active {
-    display: block;
-}
-/* Mini-Game Styling */
-.game-container {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    margin: 20px auto;
-    border: 2px solid white;
-    background-color: rgba(255, 255, 255, 0.1);
+/* 🔹 Center Content */
+.content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-/* Pixelated Star */
+/* 🔹 Background Image */
+.background-img {
+    width: 90%;
+    max-width: 800px;
+    border-radius: 12px; /* Rounded edges for a softer look */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* 🔹 Pixel Characters */
+.character {
+    width: 140px;
+    height: auto;
+    margin: 20px;
+    animation: float 3s infinite ease-in-out;
+}
+
+/* ✨ Floating Animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+/* 🔹 Pixel Button */
+.pixel-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 🔥 Button Effects */
+.pixel-button img {
+    width: 220px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pixel-button img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.5);
+}
+
+/* 🔹 Game Page Styling */
+.page {
+    display: none;
+    text-align: center;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+/* 🎮 Mini-Game */
+.game-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 20px auto;
+    border: 4px solid white;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+/* 🟡 Pixelated Star */
 #pixel-star {
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
     transition: transform 0.2s;
 }
 
 #pixel-star:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
+
+/* 🔹 Back Button */
+.back-button {
+    background-color: #ff90b3;
+    border: 3px solid white;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s,

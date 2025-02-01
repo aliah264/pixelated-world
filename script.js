@@ -5,44 +5,38 @@ const pixelStar = document.getElementById('pixel-star');
 const scoreDisplay = document.getElementById('score');
 let score = 0;
 
-// Function to move star to a random position
+// Show random game page
+startButton.addEventListener('click', () => {
+    document.querySelector('.content').style.display = 'none';
+    document.getElementById('page1').classList.add('page-active');
+});
+
+// Back button
+backButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        button.closest('.page').classList.remove('page-active');
+        document.querySelector('.content').style.display = 'block';
+        score = 0;
+        scoreDisplay.textContent = score;
+    });
+});
+
+// Move the star randomly
 function moveStar() {
     const gameContainer = document.querySelector('.game-container');
     const maxX = gameContainer.clientWidth - pixelStar.clientWidth;
     const maxY = gameContainer.clientHeight - pixelStar.clientHeight;
     
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
-
-    pixelStar.style.left = `${randomX}px`;
-    pixelStar.style.top = `${randomY}px`;
+    pixelStar.style.left = `${Math.random() * maxX}px`;
+    pixelStar.style.top = `${Math.random() * maxY}px`;
 }
 
-// Star click event
+// Click event
 pixelStar.addEventListener('click', () => {
     score++;
     scoreDisplay.textContent = score;
     moveStar();
 });
 
-// Move star every 2 seconds automatically
+// Move star every 2 seconds
 setInterval(moveStar, 2000);
-
-// Function to show a random page after button click
-startButton.addEventListener('click', () => {
-    // Randomly select a page to display
-    const randomPageIndex = Math.floor(Math.random() * pages.length);
-    
-    // Hide the main content and show the selected page
-    document.querySelector('.content').style.display = 'none';
-    pages[randomPageIndex].classList.add('page-active');
-});
-
-// Go back to the main screen when 'Go Back' is clicked
-backButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Hide the current page and show the main content
-        button.closest('.page').classList.remove('page-active');
-        document.querySelector('.content').style.display = 'block';
-    });
-});
